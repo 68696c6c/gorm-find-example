@@ -1,0 +1,26 @@
+version: "3"
+
+volumes:
+  pkg:
+  db-volume:
+
+services:
+
+  example:
+    command: bash -c "dep ensure && go build -i -o example && ./example"
+    build: .
+    depends_on:
+    - db
+    volumes:
+    - ./:/go/src/gorm-find-example
+    working_dir: /go/src/gorm-find-example
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: example
+    ports:
+    - "3306:3306"
+    volumes:
+    - db-volume:/var/lib/mysql

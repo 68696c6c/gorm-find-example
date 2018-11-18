@@ -1,0 +1,30 @@
+# IDE and Filesystem files
+.idea
+.DS_Store
+*/**/memory
+
+# Config files
+config.yml
+config.seed.yml
+.env
+.test.env
+
+# Binaries
+api
+kedge-api
+
+# Dependencies
+vendor/*
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Docs, notes, and environment
+docs/postman/env
+!docs/postman/env/.gitkeep
+_notes/*
+!_notes/route.txt
+
+# Other
+b.sh
